@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1921544551178990799, guid: 966d70aa9af518a4580f5012bd9220e3, type: 3}
       propertyPath: m_Name
-      value: BounceParticle
+      value: ExplosionParticle
       objectReference: {fileID: 0}
     - target: {fileID: 7515156803457788593, guid: 966d70aa9af518a4580f5012bd9220e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -183,6 +183,11 @@ PrefabInstance:
 --- !u!4 &59162494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7515156803457788593, guid: 966d70aa9af518a4580f5012bd9220e3, type: 3}
+  m_PrefabInstance: {fileID: 59162493}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &59162495 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8792997397433657608, guid: 966d70aa9af518a4580f5012bd9220e3, type: 3}
   m_PrefabInstance: {fileID: 59162493}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &296361938
@@ -749,13 +754,42 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6758115253117057184, guid: ba8e1a8da45145a47ac6e2970718e5a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 59162494}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8423533316168344580, guid: ba8e1a8da45145a47ac6e2970718e5a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 723704671}
   m_SourcePrefab: {fileID: 100100000, guid: ba8e1a8da45145a47ac6e2970718e5a0, type: 3}
 --- !u!4 &723704668 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6758115253117057184, guid: ba8e1a8da45145a47ac6e2970718e5a0, type: 3}
   m_PrefabInstance: {fileID: 723704667}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &723704669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8423533316168344580, guid: ba8e1a8da45145a47ac6e2970718e5a0, type: 3}
+  m_PrefabInstance: {fileID: 723704667}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &723704670 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 4900174177727242643, guid: ba8e1a8da45145a47ac6e2970718e5a0, type: 3}
+  m_PrefabInstance: {fileID: 723704667}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &723704671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723704669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cabc0c8469f9e8f45be7f213b74ac37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointLight: {fileID: 723704670}
+  explosionSystem: {fileID: 59162495}
+  trailSystem: {fileID: 1531266246}
+  startSpeedX: 5
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +1003,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4257724650710682852, guid: ef08d48b69f76c343985260b11713430, type: 3}
   m_PrefabInstance: {fileID: 1531266244}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1531266246 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4468340284035951468, guid: ef08d48b69f76c343985260b11713430, type: 3}
+  m_PrefabInstance: {fileID: 1531266244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1629615254
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +1017,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1629615256}
+  - component: {fileID: 1629615257}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1000,6 +1040,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1629615257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629615254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f084d340f5b4543a67970a9015be0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runner: {fileID: 723704671}
+  trackingCamera: {fileID: 963194230}
+  displayText: {fileID: 585790292}
+  maxDeltaTime: 0.05
 --- !u!1 &1824539678
 GameObject:
   m_ObjectHideFlags: 0
