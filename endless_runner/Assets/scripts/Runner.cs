@@ -17,6 +17,8 @@ public class Runner : MonoBehaviour
 
     Vector2 position;
 
+    public Vector2 Position => position;
+
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
