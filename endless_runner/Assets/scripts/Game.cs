@@ -16,12 +16,19 @@ public class Game : MonoBehaviour
     [SerializeField, Min(0.001f)]
     float maxDeltaTime = 1f / 20f;
 
+    [SerializeField]
+    SkylineGenerator[] skylineGenerators;
+
     bool isPlaying;
 
     void StartNewGame()
     {
         trackingCamera.StartNewGame();
         runner.StartNewGame();
+        for (int i = 0; i < skylineGenerators.Length; i++)
+        {
+            skylineGenerators[i].StartNewGame(trackingCamera);
+        }
         isPlaying = true;
     }
     
@@ -51,6 +58,11 @@ public class Game : MonoBehaviour
         isPlaying = isPlaying && runner.Run(accumulateDeltaTime);
         runner.UpdateVisualization();
         trackingCamera.Track(runner.Position);
-        displayText.SetText("{0}", Mathf.Floor(runner.Position.x));        
+        displayText.SetText("{0}", Mathf.Floor(runner.Position.x));
+     //   Debug.Log("update game");
+        for (int i = 0; i < skylineGenerators.Length; i++)
+        {
+            skylineGenerators[i].FillView(trackingCamera);
+        }
     }
 }
