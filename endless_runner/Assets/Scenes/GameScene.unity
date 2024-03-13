@@ -201,7 +201,6 @@ GameObject:
   - component: {fileID: 296361942}
   - component: {fileID: 296361941}
   - component: {fileID: 296361940}
-  - component: {fileID: 296361939}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -209,27 +208,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &296361939
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296361938}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &296361940
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -329,7 +307,7 @@ MonoBehaviour:
   distance: 80
   altitude:
     min: 5
-    max: 1
+    max: 15
 --- !u!4 &297394605
 Transform:
   m_ObjectHideFlags: 0
@@ -645,7 +623,6 @@ GameObject:
   - component: {fileID: 708738153}
   - component: {fileID: 708738152}
   - component: {fileID: 708738151}
-  - component: {fileID: 708738150}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -653,27 +630,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &708738150
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708738149}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &708738151
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5905,7 +5861,8 @@ MonoBehaviour:
   trackingCamera: {fileID: 963194230}
   displayText: {fileID: 585790292}
   maxDeltaTime: 0.05
-  skylineGenerators: []
+  skylineGenerators:
+  - {fileID: 297394604}
 --- !u!1 &1824539678
 GameObject:
   m_ObjectHideFlags: 0

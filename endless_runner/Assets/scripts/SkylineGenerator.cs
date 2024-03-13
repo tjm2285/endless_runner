@@ -29,7 +29,7 @@ public class SkylineGenerator : MonoBehaviour
         FloatRange visibleX = view.VisibleX(distance).GrowExtents(border);
         while (leftmost != rightmost && leftmost.MaxX < visibleX.min)
         {
-            leftmost.Recycle();
+            leftmost = leftmost.Recycle();
         }
         while (endPosition.x < visibleX.max)
         {

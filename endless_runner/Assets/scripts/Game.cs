@@ -59,7 +59,7 @@ public class Game : MonoBehaviour
         runner.UpdateVisualization();
         trackingCamera.Track(runner.Position);
         displayText.SetText("{0}", Mathf.Floor(runner.Position.x));
-
+     //   Debug.Log("update game");
         for (int i = 0; i < skylineGenerators.Length; i++)
         {
             skylineGenerators[i].FillView(trackingCamera);
