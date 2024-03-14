@@ -27,13 +27,16 @@ public class SkylineObject : MonoBehaviour
     [SerializeField, Min(1f)]
     float extents;
 
+    [SerializeField]
+    FloatRange gapY;
+
     [System.NonSerialized]
     Stack<SkylineObject> pool;
     public SkylineObject Next
     { get; set; }
 
     public float MaxX => transform.localPosition.x + extents;
-
+    public FloatRange GapY => gapY.Shift(transform.localPosition.y);
     public Vector3 PlaceAfter(Vector3 position)
     {
         position.x += extents;
