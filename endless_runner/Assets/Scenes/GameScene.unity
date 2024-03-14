@@ -225,6 +225,12 @@ MonoBehaviour:
   altitude:
     min: 5
     max: 15
+  gapLength:
+    min: 0
+    max: 0
+  sequenceLength:
+    min: 0
+    max: 30
 --- !u!4 &297394605
 Transform:
   m_ObjectHideFlags: 0
@@ -5616,6 +5622,12 @@ MonoBehaviour:
   altitude:
     min: -2
     max: 2
+  gapLength:
+    min: 0
+    max: 5
+  sequenceLength:
+    min: 0
+    max: 5
 --- !u!4 &1100582598
 Transform:
   m_ObjectHideFlags: 0
@@ -5786,6 +5798,12 @@ MonoBehaviour:
   altitude:
     min: -6
     max: -4
+  gapLength:
+    min: 1
+    max: 30
+  sequenceLength:
+    min: 0
+    max: 30
 --- !u!4 &1764212915
 Transform:
   m_ObjectHideFlags: 0
@@ -5836,6 +5854,12 @@ MonoBehaviour:
   altitude:
     min: -5
     max: 1
+  gapLength:
+    min: 2
+    max: 10
+  sequenceLength:
+    min: 20
+    max: 60
 --- !u!4 &1813275515
 Transform:
   m_ObjectHideFlags: 0
