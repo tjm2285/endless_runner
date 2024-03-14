@@ -10,14 +10,20 @@ public class Runner : MonoBehaviour
 
     [SerializeField]
     ParticleSystem explosionSystem, trailSystem;
+
     [SerializeField, Min(0f)]
     float startSpeedX = 5f;
+
+    [SerializeField, Min(0f)]
+    float extents = 0.5f;
 
     MeshRenderer meshRenderer;
 
     Vector2 position;
 
     public Vector2 Position => position;
+
+    SkylineObject currentObstacle;
 
     private void Awake()
     {
@@ -26,9 +32,14 @@ public class Runner : MonoBehaviour
         pointLight.enabled = false;
     }
 
-    public void StartNewGame()
+    public void StartNewGame(SkylineObject obstacle)
     {
-        position = Vector2.zero;
+        currentObstacle = obstacle;
+        while (currentObstacle.MaxX < extents)
+        {
+            currentObstacle = currentObstacle.Next;
+        }
+        position =  new Vector2(0f, currentObstacle.GapY.min + extents);
         transform.localPosition = position;
         meshRenderer.enabled = true;
         pointLight.enabled = true;

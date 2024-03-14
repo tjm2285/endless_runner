@@ -231,6 +231,7 @@ MonoBehaviour:
   sequenceLength:
     min: 0
     max: 30
+  gapPrefab: {fileID: 0}
 --- !u!4 &297394605
 Transform:
   m_ObjectHideFlags: 0
@@ -5628,6 +5629,7 @@ MonoBehaviour:
   sequenceLength:
     min: 0
     max: 5
+  gapPrefab: {fileID: 8697201783294974051, guid: 84e6cc3eee5db0e418f09310b724b926, type: 3}
 --- !u!4 &1100582598
 Transform:
   m_ObjectHideFlags: 0
@@ -5804,6 +5806,7 @@ MonoBehaviour:
   sequenceLength:
     min: 0
     max: 30
+  gapPrefab: {fileID: 0}
 --- !u!4 &1764212915
 Transform:
   m_ObjectHideFlags: 0
@@ -5860,6 +5863,7 @@ MonoBehaviour:
   sequenceLength:
     min: 20
     max: 60
+  gapPrefab: {fileID: 0}
 --- !u!4 &1813275515
 Transform:
   m_ObjectHideFlags: 0
