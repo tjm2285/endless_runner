@@ -165,6 +165,8 @@ MonoBehaviour:
     min: 0
     max: 30
   gapPrefab: {fileID: 0}
+  maxYDifference: 0
+  singleSequenceStart: 0
 --- !u!4 &297394605
 Transform:
   m_ObjectHideFlags: 0
@@ -742,6 +744,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7fd1dca26573f42afea25433e24ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.00019722944
+      value: 1.9999759
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 7.0036244
+      value: 7.011088
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!198 &963194231
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5582,6 +5608,8 @@ MonoBehaviour:
     min: 0
     max: 5
   gapPrefab: {fileID: 8697201783294974051, guid: 84e6cc3eee5db0e418f09310b724b926, type: 3}
+  maxYDifference: 0
+  singleSequenceStart: 0
 --- !u!4 &1100582598
 Transform:
   m_ObjectHideFlags: 0
@@ -5650,6 +5678,8 @@ MonoBehaviour:
   - {fileID: 1813275514}
   - {fileID: 1764212914}
   obstacleGenerator: {fileID: 1100582597}
+  extraGapFactor: 0.5
+  extraSequenceFactor: 1
 --- !u!1 &1764212913
 GameObject:
   m_ObjectHideFlags: 0
@@ -5692,6 +5722,8 @@ MonoBehaviour:
     min: 0
     max: 30
   gapPrefab: {fileID: 0}
+  maxYDifference: 0
+  singleSequenceStart: 0
 --- !u!4 &1764212915
 Transform:
   m_ObjectHideFlags: 0
@@ -5749,6 +5781,8 @@ MonoBehaviour:
     min: 20
     max: 60
   gapPrefab: {fileID: 0}
+  maxYDifference: 0
+  singleSequenceStart: 0
 --- !u!4 &1813275515
 Transform:
   m_ObjectHideFlags: 0

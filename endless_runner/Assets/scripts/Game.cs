@@ -22,6 +22,9 @@ public class Game : MonoBehaviour
     [SerializeField]
 	SkylineGenerator obstacleGenerator;
 
+    [SerializeField]
+    float extraGapFactor = 0.5f, extraSequenceFactor = 1f;
+
     bool isPlaying;
 
     void StartNewGame()
@@ -72,7 +75,8 @@ public class Game : MonoBehaviour
         runner.UpdateVisualization();
         trackingCamera.Track(runner.Position);
         displayText.SetText("{0}", Mathf.Floor(runner.Position.x));
-        obstacleGenerator.FillView(trackingCamera);
+        obstacleGenerator.FillView(trackingCamera, runner.SpeedX * extraGapFactor,
+            runner.SpeedX * extraSequenceFactor);
         for (int i = 0; i < skylineGenerators.Length; i++)
         {
             skylineGenerators[i].FillView(trackingCamera);
