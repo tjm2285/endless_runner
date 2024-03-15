@@ -25,6 +25,7 @@ public class Runner : MonoBehaviour
     public Vector2 Position => position;
 
     SkylineObject currentObstacle;
+    bool transitioning;
 
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class Runner : MonoBehaviour
         SetTrailEmission(true);
         trailSystem.Clear();
         trailSystem.Play();
+        transitioning = false;
     }
 
     void Explode()
@@ -78,10 +80,21 @@ public class Runner : MonoBehaviour
             {
                 ConstrainY(currentObstacle);
             }
+
+            if (!transitioning)
+            {
+                if (CheckCollision())
+                {
+                    return false;
+                }
+                transitioning = true;
+            }
+
             ConstrainY(currentObstacle.Next);
             if (!isStillInsideCurrentObstacle)
             {
                 currentObstacle = currentObstacle.Next;
+                transitioning = false;
             }
         }
         
@@ -104,5 +117,23 @@ public class Runner : MonoBehaviour
         {
             position.y = openY.max - extents;
         }
+    }
+
+    bool CheckCollision()
+    {
+        Vector2 transitionPoint;
+        transitionPoint.x = currentObstacle.MaxX - extents;
+        transitionPoint.y = position.y;
+        float shrunkExtents = extents - 0.01f;
+        FloatRange gapY = currentObstacle.Next.GapY;
+
+        if (transitionPoint.y - shrunkExtents < gapY.min || transitionPoint.y + shrunkExtents > gapY.max)
+        {
+            position = transitionPoint;
+            Explode();
+            return true;
+        }
+
+        return false;
     }
 }
