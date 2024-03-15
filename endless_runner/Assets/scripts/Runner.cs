@@ -13,20 +13,22 @@ public class Runner : MonoBehaviour
     ParticleSystem explosionSystem, trailSystem;
 
     [SerializeField, Min(0f)]
-    float startSpeedX = 5f;
+    float startSpeedX = 5f, jumpAcceleration = 100f, gravity = 40f;
 
     [SerializeField, Min(0f)]
     float extents = 0.5f;
 
+    [SerializeField]
+    FloatRange jumpDuration = new FloatRange(0.1f, 0.2f);
     MeshRenderer meshRenderer;
 
-    Vector2 position;
+    Vector2 position, velocity;
 
     public Vector2 Position => position;
 
     SkylineObject currentObstacle;
-    bool transitioning;
-
+    bool grounded, transitioning;
+    float jumpTimeRemaining;
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -50,6 +52,10 @@ public class Runner : MonoBehaviour
         trailSystem.Clear();
         trailSystem.Play();
         transitioning = false;
+
+        grounded = true;
+        jumpTimeRemaining = 0f;
+        velocity = new Vector2(startSpeedX, 0f);
     }
 
     void Explode()
@@ -68,7 +74,7 @@ public class Runner : MonoBehaviour
 
     public bool Run(float dt)
     {
-        position.x += startSpeedX * dt;
+        Move(dt);
         if (position.x + extents < currentObstacle.MaxX)
         {
             ConstrainY(currentObstacle);
@@ -112,10 +118,15 @@ public class Runner : MonoBehaviour
         if (position.y - extents <= openY.min)
         {
             position.y = openY.min + extents;
+            velocity.y = Mathf.Max(velocity.y, 0f);
+            jumpTimeRemaining = 0f;
+            grounded = true;
         }
         else if (position.y + extents >= openY.max)
         {
             position.y = openY.max - extents;
+            velocity.y = Mathf.Min(velocity.y, 0f);
+            jumpTimeRemaining = 0f;
         }
     }
 
@@ -123,7 +134,7 @@ public class Runner : MonoBehaviour
     {
         Vector2 transitionPoint;
         transitionPoint.x = currentObstacle.MaxX - extents;
-        transitionPoint.y = position.y;
+        transitionPoint.y = position.y - velocity.y * (position.x - transitionPoint.x) / velocity.x;
         float shrunkExtents = extents - 0.01f;
         FloatRange gapY = currentObstacle.Next.GapY;
 
@@ -136,4 +147,30 @@ public class Runner : MonoBehaviour
 
         return false;
     }
+
+    void Move(float dt)
+    {
+        if (jumpTimeRemaining > 0f)
+        {
+            jumpTimeRemaining -= dt;
+            velocity.y += jumpAcceleration * Mathf.Min(dt, jumpTimeRemaining);
+        }
+        else
+        {
+            velocity.y -= gravity * dt;
+        }
+
+        grounded = false;
+        position += velocity * dt;
+    }
+
+    public void StartJumping()
+    {
+        if (grounded)
+        {
+            jumpTimeRemaining = jumpDuration.max;
+        }
+    }
+
+    public void EndJumping() => jumpTimeRemaining += jumpDuration.min - jumpDuration.max;
 }

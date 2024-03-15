@@ -51,6 +51,15 @@ public class Game : MonoBehaviour
 
     private void UpdateGame()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            runner.StartJumping();
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            runner.EndJumping();
+        }
+
         float accumulateDeltaTime = Time.deltaTime;
 
         while (accumulateDeltaTime > maxDeltaTime && isPlaying)
