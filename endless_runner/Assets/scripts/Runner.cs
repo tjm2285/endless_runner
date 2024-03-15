@@ -13,13 +13,17 @@ public class Runner : MonoBehaviour
     ParticleSystem explosionSystem, trailSystem;
 
     [SerializeField, Min(0f)]
-    float startSpeedX = 5f, jumpAcceleration = 100f, gravity = 40f;
+    float startSpeedX = 5f, maxSpeedX = 40f, jumpAcceleration = 100f, gravity = 40f;
 
     [SerializeField, Min(0f)]
     float extents = 0.5f;
 
     [SerializeField]
     FloatRange jumpDuration = new FloatRange(0.1f, 0.2f);
+
+    [SerializeField]
+    AnimationCurve runAccelerationCurve;
+
     MeshRenderer meshRenderer;
 
     Vector2 position, velocity;
@@ -164,7 +168,14 @@ public class Runner : MonoBehaviour
             velocity.y -= gravity * dt;
         }
 
-        grounded = false;
+        if (grounded)
+        {
+            velocity.x = Mathf.Min(
+                velocity.x + runAccelerationCurve.Evaluate(velocity.x / maxSpeedX) * dt,
+                maxSpeedX
+            );
+            grounded = false;
+        }
         position += velocity * dt;
     }
 
