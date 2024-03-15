@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class Runner : MonoBehaviour
 {
@@ -65,13 +66,25 @@ public class Runner : MonoBehaviour
 
     public bool Run(float dt)
     {
-        if (position.x > 25f)
-        {
-            Explode();
-            return false;
-        }
-
         position.x += startSpeedX * dt;
+        if (position.x + extents < currentObstacle.MaxX)
+        {
+            ConstrainY(currentObstacle);
+        }
+        else
+        {
+            bool isStillInsideCurrentObstacle = position.x - extents < currentObstacle.MaxX;
+            if (isStillInsideCurrentObstacle)
+            {
+                ConstrainY(currentObstacle);
+            }
+            ConstrainY(currentObstacle.Next);
+            if (!isStillInsideCurrentObstacle)
+            {
+                currentObstacle = currentObstacle.Next;
+            }
+        }
+        
         return true;
     }
     
@@ -80,15 +93,16 @@ public class Runner : MonoBehaviour
         transform.localPosition = position;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void ConstrainY(SkylineObject obstacle)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        FloatRange openY = obstacle.GapY;
+        if (position.y - extents <= openY.min)
+        {
+            position.y = openY.min + extents;
+        }
+        else if (position.y + extents >= openY.max)
+        {
+            position.y = openY.max - extents;
+        }
     }
 }
