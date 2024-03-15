@@ -29,6 +29,7 @@ public class Runner : MonoBehaviour
     Vector2 position, velocity;
 
     public Vector2 Position => position;
+    public float SpeedX => velocity.x;
 
     SkylineObject currentObstacle;
     bool grounded, transitioning;
