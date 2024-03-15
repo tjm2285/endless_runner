@@ -134,11 +134,15 @@ public class Runner : MonoBehaviour
     {
         Vector2 transitionPoint;
         transitionPoint.x = currentObstacle.MaxX - extents;
-        transitionPoint.y = position.y - velocity.y * (position.x - transitionPoint.x) / velocity.x;
+        transitionPoint.y =
+            position.y - velocity.y * (position.x - transitionPoint.x) / velocity.x;
+
         float shrunkExtents = extents - 0.01f;
         FloatRange gapY = currentObstacle.Next.GapY;
-
-        if (transitionPoint.y - shrunkExtents < gapY.min || transitionPoint.y + shrunkExtents > gapY.max)
+        if (
+            transitionPoint.y - shrunkExtents < gapY.min ||
+            transitionPoint.y + shrunkExtents > gapY.max
+        )        
         {
             position = transitionPoint;
             Explode();

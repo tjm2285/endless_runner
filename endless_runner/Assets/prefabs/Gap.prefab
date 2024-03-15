@@ -47,4 +47,4 @@ MonoBehaviour:
   extents: 5
   gapY:
     min: -100
-    max: -100
+    max: 100
