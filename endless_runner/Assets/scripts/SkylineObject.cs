@@ -82,4 +82,5 @@ public class SkylineObject : MonoBehaviour
         position.x += extents;
         transform.localPosition = position;
     }
+    public virtual void Check(Runner runner) { }
 }
