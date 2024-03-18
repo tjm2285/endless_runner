@@ -154,6 +154,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 8530255437775406807, guid: fc6614c5ced21364d8f60051e117c9a4, type: 3}
+  - {fileID: 3706422857775368279, guid: ea1f107630056234e91a57873fc2667e, type: 3}
+  - {fileID: 3706422857775368279, guid: dede80b44709bab44a8c4a88cab4411c, type: 3}
+  - {fileID: 3706422857775368279, guid: 288213387a4d35e4bbef84d21a4c4173, type: 3}
   distance: 80
   altitude:
     min: 5
@@ -5712,6 +5715,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 8530255437775406807, guid: 1096c2afad2ecb64686a9a977ed4caf1, type: 3}
+  - {fileID: 8005295724856080425, guid: 5e536b161bd9b3941ba9fa052bf30117, type: 3}
+  - {fileID: 8005295724856080425, guid: 8ace70bde3822f249b13a84638ab4dea, type: 3}
   distance: -10
   altitude:
     min: -6
@@ -5771,6 +5776,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 8530255437775406807, guid: 012a1807465b95e4e9ed7f5c10df7765, type: 3}
+  - {fileID: -607312455495273390, guid: cb4bac5721f9bda4cb15517dcdb7387a, type: 3}
+  - {fileID: -607312455495273390, guid: 54aa9745500841545a9e4b09ce3a1e3f, type: 3}
   distance: 40
   altitude:
     min: -5

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2983812893054422839}
   - component: {fileID: 8530255437775406807}
   m_Layer: 0
-  m_Name: SkylineObject
+  m_Name: Background1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
