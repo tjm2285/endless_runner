@@ -29,7 +29,11 @@ public class Runner : MonoBehaviour
     Vector2 position, velocity;
 
     public Vector2 Position => position;
-    public float SpeedX => velocity.x;
+    public float SpeedX
+    {
+        get => velocity.x;
+        set => velocity.x = value;
+    }
 
     SkylineObject currentObstacle;
     bool grounded, transitioning;
@@ -133,6 +137,7 @@ public class Runner : MonoBehaviour
             velocity.y = Mathf.Min(velocity.y, 0f);
             jumpTimeRemaining = 0f;
         }
+        obstacle.Check(this);
     }
 
     bool CheckCollision()
