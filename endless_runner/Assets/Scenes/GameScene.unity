@@ -5598,9 +5598,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 4532889279249213589, guid: 13070a5ecefe2bb4db5a4f6ed2a8d587, type: 3}
+  - {fileID: 6926684606823366232, guid: 13070a5ecefe2bb4db5a4f6ed2a8d587, type: 3}
   - {fileID: 4532889279249213589, guid: 486be292c5f34de47bbc41678a3abce2, type: 3}
   - {fileID: 2176923181770754985, guid: 534a1e6992b6bd944804c97fd1122b07, type: 3}
+  - {fileID: -4810079436864788076, guid: a8f08807e7bb0584f95bc616e2bf0805, type: 3}
   distance: 0
   altitude:
     min: -4
