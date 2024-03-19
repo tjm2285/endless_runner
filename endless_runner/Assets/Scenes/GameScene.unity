@@ -540,7 +540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6758115253117057184, guid: ba8e1a8da45145a47ac6e2970718e5a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6758115253117057184, guid: ba8e1a8da45145a47ac6e2970718e5a0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5612,8 +5612,8 @@ MonoBehaviour:
     min: 0
     max: 5
   gapPrefab: {fileID: 8697201783294974051, guid: 84e6cc3eee5db0e418f09310b724b926, type: 3}
-  maxYDifference: 0
-  singleSequenceStart: 0
+  maxYDifference: 5
+  singleSequenceStart: 1
 --- !u!4 &1100582598
 Transform:
   m_ObjectHideFlags: 0
@@ -5676,7 +5676,7 @@ MonoBehaviour:
   runner: {fileID: 723704671}
   trackingCamera: {fileID: 963194230}
   displayText: {fileID: 585790292}
-  maxDeltaTime: 0.05
+  maxDeltaTime: 0.008333334
   skylineGenerators:
   - {fileID: 297394604}
   - {fileID: 1813275514}
